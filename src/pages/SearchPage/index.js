@@ -23,7 +23,7 @@ export default function SearchPage() {
 
   const fetchSearchMovie = async(searchTerm) =>{//비동기처리
     try{
-      const request = await axios.get(`search/multi?include_adult=false&query=${searchTerm}`); // 성인영화 제외
+      const request = await axios.get(`search/multi?include_adult=false&query=${searchTerm}`); //성인영화 제외
       setSearchResults(request.data.results);
     }catch(error){
       console.log('error', error)
