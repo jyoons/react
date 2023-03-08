@@ -1,8 +1,11 @@
 import React, { useState, useEffect} from 'react';
+import { useNavigate} from 'react-router-dom';
 import './Nav.css'
 
 export default function Nav() {
   const [show, setShow] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
+  const navigate = useNavigate() // 경로변경
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -16,6 +19,10 @@ export default function Nav() {
     }
   }, [])
   
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+    navigate(`/search?q=${e.target.value}`);
+  }
   return (
     //true일때 nav__black 적용
     <nav className={`nav ${show && "nav__black"}`}>
@@ -24,6 +31,13 @@ export default function Nav() {
       src="https://www1.netflixsurveys.com/survey/selfserve/a34/logo_2020.png"
       className="nav__logo"
       onClick={() => window.location.reload()}
+      />
+      <input 
+        value={searchValue}
+        type="text"
+        placeholder="영화를 검색해 주세요"
+        className="nav__input"
+        onChange={handleChange}
       />
       <img 
         alt="User logged"
