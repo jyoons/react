@@ -6,7 +6,6 @@ export default function Nav() {
   const [show, setShow] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const navigate = useNavigate() // 경로변경
-  console.log('nav')
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if(window.scrollY > 50){
