@@ -20,9 +20,9 @@ export default function index() {
           isLargeRow
       />
         <Row
-          title="Comedy Movies"
+          title="Romance Movies"
           id="CM"
-          fetchUrl={requests.fetchComedyMovies}
+          fetchUrl={requests.fetchRomanceMovies}
           isLargeRow
       />
     </div>
